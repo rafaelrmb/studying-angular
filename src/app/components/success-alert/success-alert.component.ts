@@ -8,10 +8,14 @@ import { Component } from '@angular/core';
 export class SuccessAlertComponent {
   operationId: number = 54678;
   username: string = '';
+  isOperationDone: boolean = false;
 
   constructor() {}
-
+  onSubmit() {
+    this.isOperationDone = true;
+  }
   resetUsername() {
     this.username = '';
+    this.isOperationDone = false;
   }
 }
