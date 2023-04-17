@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class WarningAlertComponent {
   confirmButton: boolean = false;
+  isConfirmed: boolean = false;
 
   constructor() {
     setTimeout(() => {
@@ -14,6 +15,8 @@ export class WarningAlertComponent {
     }, 2000);
   }
   confirm() {
-    confirm('Are you sure?');
+    if (confirm('Are you sure?')) {
+      this.isConfirmed = true;
+    }
   }
 }
