@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class SuccessAlertComponent {
   operationId: number = 54678;
+  username: string = '';
+
+  constructor() {}
+
+  resetUsername() {
+    this.username = '';
+  }
 }

@@ -1,3 +1,25 @@
-<h2 class="bg-green-500 text-black p-8">
-  Success text - Operation {{ operationId }} was successful
-</h2>
+<div class="container flex flex-col gap-4">
+  <div class="relative">
+    <label for="username" class="text-sm leading-7 text-gray-600"
+      >Username</label
+    >
+    <input
+      type="username"
+      id="username"
+      name="username"
+      [(ngModel)]="username"
+      class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+    />
+  </div>
+  <h2 class="p-8 text-black bg-green-500">
+    Success text - {{ username }} completed operation
+    {{ operationId }} successfully.
+  </h2>
+  <button
+    [disabled]="username === ''"
+    (click)="resetUsername()"
+    class="inline-flex px-6 py-2 text-lg text-white bg-indigo-500 border-0 rounded cursor-pointer max-w-max focus:outline-none hover:bg-indigo-600"
+  >
+    Reset username
+  </button>
+</div>
