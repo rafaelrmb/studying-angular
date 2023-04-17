@@ -17,7 +17,7 @@
     {{ operationId }} successfully.
   </h2>
   <button
-    [disabled]="username === ''"
+    *ngIf="username !== ''"
     (click)="resetUsername()"
     class="inline-flex px-6 py-2 text-lg text-white bg-indigo-500 border-0 rounded cursor-pointer max-w-max focus:outline-none hover:bg-indigo-600"
   >
