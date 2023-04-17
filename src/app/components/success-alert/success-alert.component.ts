@@ -6,13 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./success-alert.component.css'],
 })
 export class SuccessAlertComponent {
-  operationId: number = 54678;
+  operationId: number = Math.floor(Math.random() * 1000);
   username: string = '';
   isOperationDone: boolean = false;
 
   constructor() {}
   onSubmit() {
     this.isOperationDone = true;
+    this.operationId = Math.floor(Math.random() * 1000);
   }
   resetUsername() {
     this.username = '';
