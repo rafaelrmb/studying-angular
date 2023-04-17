@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,16 +8,9 @@ import { WarningAlertComponent } from './components/warning-alert/warning-alert.
 import { SuccessAlertComponent } from './components/success-alert/success-alert.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    WarningAlertComponent,
-    SuccessAlertComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, WarningAlertComponent, SuccessAlertComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
