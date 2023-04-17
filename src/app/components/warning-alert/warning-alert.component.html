@@ -1,1 +1,12 @@
-<h2 class="bg-red-600 text-black p-8">Warning text - Something went wrong</h2>
+<div class="container">
+  <h2 class="flex items-center justify-between p-8 text-black bg-red-600">
+    Warning text - Are you sure you want to proceed?
+    <button
+      class="inline-flex px-6 py-2 text-lg text-white bg-indigo-500 border-0 rounded cursor-pointer focus:outline-none hover:bg-indigo-600"
+      (click)="confirm()"
+      [disabled]="!confirmButton"
+    >
+      Confirm
+    </button>
+  </h2>
+</div>
