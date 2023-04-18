@@ -8,6 +8,7 @@
       id="server"
       name="server"
       class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+      [(ngModel)]="newServerName"
     />
   </div>
 
@@ -20,17 +21,20 @@
       id="content"
       name="content"
       class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+      [(ngModel)]="newServerContent"
     />
   </div>
 
   <button
     class="inline-flex px-6 py-2 text-lg text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600"
+    (click)="onAddServer('server')"
   >
     Add Server
   </button>
 
   <button
     class="inline-flex px-6 py-2 ml-4 text-lg text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600"
+    (click)="onAddServer('blueprint')"
   >
     Add Server Blueprint
   </button>
