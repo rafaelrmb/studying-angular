@@ -1,1 +1,15 @@
-<p>server-element works!</p>
+<div class="container border-2 rounded-t-lg">
+  <div class="p-4 text-xl font-semibold rounded-t-lg bg-slate-200">
+    {{ element.name }}
+  </div>
+  <div class="p-4">
+    <p class="font-normal text-red-600">
+      <strong *ngIf="element.type === 'server'">
+        {{ element.content }}
+      </strong>
+      <em *ngIf="element.type === 'blueprint'">
+        {{ element.content }}
+      </em>
+    </p>
+  </div>
+</div>
