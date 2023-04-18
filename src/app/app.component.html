@@ -24,3 +24,20 @@
     </p>
   </app-server-element>
 </div>
+
+<div class="container flex flex-col gap-4 pt-8 mx-auto">
+  <h2 class="text-2xl font-semibold border-b-2">
+    Components and Data binding - Assignment
+  </h2>
+  <app-game-control (refreshNumber)="updateNumbers($event)"></app-game-control>
+  <div class="container flex flex-wrap gap-4">
+    <app-odd
+      *ngFor="let oddNumber of oddNumbersArr"
+      [number]="oddNumber"
+    ></app-odd>
+    <app-even
+      *ngFor="let evenNumber of evenNumbersArr"
+      [number]="evenNumber"
+    ></app-even>
+  </div>
+</div>

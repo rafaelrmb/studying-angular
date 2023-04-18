@@ -10,6 +10,17 @@ export class AppComponent {
     { type: 'server', name: 'Testserver', content: 'Just a test!' },
   ];
 
+  oddNumbersArr: number[] = [];
+  evenNumbersArr: number[] = [];
+
+  updateNumbers(currentNumber: number) {
+    let isEven = currentNumber % 2 === 0;
+
+    isEven
+      ? this.evenNumbersArr.push(currentNumber)
+      : this.oddNumbersArr.push(currentNumber);
+  }
+
   onAddServer(data: {
     type: string;
     serverName: string;
