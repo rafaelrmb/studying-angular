@@ -13,14 +13,11 @@ export class CockpitComponent {
     serverContent: string;
   }>();
 
-  newServerName = '';
-  newServerContent = '';
-
-  onAddServer(type: string) {
+  onAddServer(type: string, serverName: string, serverContent: string) {
     this.createdServer.emit({
       type: type,
-      serverName: this.newServerName,
-      serverContent: this.newServerContent,
+      serverName: serverName,
+      serverContent: serverContent,
     });
   }
 }
