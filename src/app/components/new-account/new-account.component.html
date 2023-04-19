@@ -1,1 +1,31 @@
-<p>new-account works!</p>
+<div class="container">
+  <div class="relative mb-4">
+    <label for="accName" class="text-sm leading-7 text-gray-600"
+      >Account Name</label
+    >
+    <input
+      type="text"
+      id="accName"
+      name="accName"
+      class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+    />
+  </div>
+  <div class="relative mb-4">
+    <label for="accStatus" class="text-sm leading-7 text-gray-600"
+      >Account Status</label
+    >
+    <select
+      class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+      [(ngModel)]="accountStatus"
+    >
+      <option *ngFor="let status of accountStatus" [value]="status">
+        {{ status }}
+      </option>
+    </select>
+  </div>
+  <button
+    class="inline-flex px-6 py-2 text-lg text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600"
+  >
+    Add Account
+  </button>
+</div>
