@@ -12,7 +12,7 @@ export class AppComponent {
   isDataLoaded: boolean = false;
   oddNumbersArr: number[] = [];
   evenNumbersArr: number[] = [];
-  currentPage: string = 'basics';
+  currentPage: string = 'services';
 
   updateNumbers(currentNumber: number) {
     let isEven = currentNumber % 2 === 0;
