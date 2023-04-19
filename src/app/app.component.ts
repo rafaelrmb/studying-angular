@@ -9,11 +9,10 @@ export class AppComponent {
   serverElements = [
     { type: 'server', name: 'Testserver', content: 'Just a test!' },
   ];
-
   isDataLoaded: boolean = false;
-
   oddNumbersArr: number[] = [];
   evenNumbersArr: number[] = [];
+  currentPage: string = 'basics';
 
   updateNumbers(currentNumber: number) {
     let isEven = currentNumber % 2 === 0;
@@ -33,5 +32,9 @@ export class AppComponent {
       name: data.serverName,
       content: data.serverContent,
     });
+  }
+
+  changeContent($event: string) {
+    this.currentPage = $event;
   }
 }
