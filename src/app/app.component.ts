@@ -10,6 +10,8 @@ export class AppComponent {
     { type: 'server', name: 'Testserver', content: 'Just a test!' },
   ];
 
+  isDataLoaded: boolean = false;
+
   oddNumbersArr: number[] = [];
   evenNumbersArr: number[] = [];
 
