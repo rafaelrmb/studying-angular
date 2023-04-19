@@ -14,6 +14,7 @@ import { EvenComponent } from './components/even/even.component';
 import { BasicHighlightDirective } from './directives/basic-highlight.directive';
 import { ImprovedHighlightDirective } from './directives/improved-highlight.directive';
 import { UnlessDirective } from './directives/unless.directive';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { UnlessDirective } from './directives/unless.directive';
     BasicHighlightDirective,
     ImprovedHighlightDirective,
     UnlessDirective,
+    HeaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
