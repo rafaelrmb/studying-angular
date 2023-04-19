@@ -1,3 +1,4 @@
+import { AccountsService } from './services/accounts.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,6 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  constructor(private accountService: AccountsService) {}
+
+  ngOnInit(): void {
+    this.accountsList = this.accountService.accountsList;
+  }
+
   /* ------------------- HEADER CONTENT ----------------------*/
   currentPage: string = 'services';
 
@@ -47,8 +54,4 @@ export class AppComponent {
   accountsList: { name: string; status: string }[] = [
     { name: 'Account 1', status: 'Active' },
   ];
-
-  addAccount(account: { name: string; status: string }) {
-    this.accountsList.push(account);
-  }
 }

@@ -94,7 +94,7 @@
   class="container flex flex-col gap-4 pt-8 mx-auto"
   *ngIf="currentPage === 'services'"
 >
-  <app-new-account (createdAccount)="addAccount($event)"></app-new-account>
+  <app-new-account></app-new-account>
   <app-account
     *ngFor="let account of accountsList"
     [newAccount]="account"
