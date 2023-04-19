@@ -6,21 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  /* ------------------- HEADER CONTENT ----------------------*/
+  currentPage: string = 'services';
+
+  changeContent($event: string) {
+    this.currentPage = $event;
+  }
+
+  /* ----------- BASIC AND COMPONENTS STUFF -------------------*/
   serverElements = [
     { type: 'server', name: 'Testserver', content: 'Just a test!' },
   ];
-  isDataLoaded: boolean = false;
-  oddNumbersArr: number[] = [];
-  evenNumbersArr: number[] = [];
-  currentPage: string = 'services';
-
-  updateNumbers(currentNumber: number) {
-    let isEven = currentNumber % 2 === 0;
-
-    isEven
-      ? this.evenNumbersArr.push(currentNumber)
-      : this.oddNumbersArr.push(currentNumber);
-  }
 
   onAddServer(data: {
     type: string;
@@ -34,7 +30,16 @@ export class AppComponent {
     });
   }
 
-  changeContent($event: string) {
-    this.currentPage = $event;
+  /* ------------------- DIRECTIVES STUFF ----------------------*/
+  isDataLoaded: boolean = false;
+  oddNumbersArr: number[] = [];
+  evenNumbersArr: number[] = [];
+
+  updateNumbers(currentNumber: number) {
+    let isEven = currentNumber % 2 === 0;
+
+    isEven
+      ? this.evenNumbersArr.push(currentNumber)
+      : this.oddNumbersArr.push(currentNumber);
   }
 }
