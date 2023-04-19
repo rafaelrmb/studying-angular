@@ -48,7 +48,11 @@
 <div class="container flex flex-col gap-4 pt-8 mx-auto">
   <h2 class="text-2xl font-semibold border-b-2">Directives</h2>
   <p appBasicHighlight>Some text here to apply the basicHighlightDirective</p>
-  <p appImprovedHighlight [highlightColor]="'bg-red-900'">
+  <p
+    appImprovedHighlight
+    [highlightColor]="'bg-red-900'"
+    defaultColor="bg-blue-900"
+  >
     Some text here to apply the improvedHighlightDirective
   </p>
 </div>
