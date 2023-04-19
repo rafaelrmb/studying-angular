@@ -17,6 +17,8 @@ import { UnlessDirective } from './directives/unless.directive';
 import { HeaderComponent } from './components/header/header.component';
 import { NewAccountComponent } from './components/new-account/new-account.component';
 import { AccountComponent } from './components/account/account.component';
+import { ActiveUsersComponent } from './components/active-users/active-users.component';
+import { InactiveUsersComponent } from './components/inactive-users/inactive-users.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { AccountComponent } from './components/account/account.component';
     HeaderComponent,
     NewAccountComponent,
     AccountComponent,
+    ActiveUsersComponent,
+    InactiveUsersComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
