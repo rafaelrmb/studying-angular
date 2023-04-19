@@ -44,7 +44,9 @@ export class AppComponent {
   }
 
   /* ------------------- SERVICES STUFF ----------------------*/
-  accountsList: { name: string; status: string }[] = [];
+  accountsList: { name: string; status: string }[] = [
+    { name: 'Account 1', status: 'Active' },
+  ];
 
   addAccount(account: { name: string; status: string }) {
     this.accountsList.push(account);
