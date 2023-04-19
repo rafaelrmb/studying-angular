@@ -1,10 +1,13 @@
-import { Directive } from '@angular/core';
+import { Directive, OnInit, Renderer2, ElementRef } from '@angular/core';
 
 @Directive({
-  selector: '[appImprovedHighlight]'
+  selector: '[appImprovedHighlight]',
 })
-export class ImprovedHighlightDirective {
+export class ImprovedHighlightDirective implements OnInit {
+  constructor(private renderer: Renderer2, private elementRef: ElementRef) {}
 
-  constructor() { }
-
+  ngOnInit(): void {
+    this.renderer.addClass(this.elementRef.nativeElement, 'bg-green-900'); //add styling via class
+    this.renderer.setStyle(this.elementRef.nativeElement, 'color', 'white'); //add styling via setStyle
+  }
 }
