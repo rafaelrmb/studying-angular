@@ -1,5 +1,6 @@
 import { AccountsService } from './services/accounts.service';
 import { Component } from '@angular/core';
+import { UsersService } from './services/users.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(private accountService: AccountsService) {}
+  constructor(
+    private accountService: AccountsService,
+    private usersService: UsersService
+  ) {}
 
   ngOnInit(): void {
     this.accountsList = this.accountService.accountsList;

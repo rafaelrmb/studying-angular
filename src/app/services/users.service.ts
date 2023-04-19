@@ -7,32 +7,34 @@ import { OperationsCounterService } from './operations-counter.service';
 export class UsersService {
   constructor(private opCounter: OperationsCounterService) {}
 
-  usersList = [
-    {
-      id: 1,
-      name: 'John',
-      active: true,
-    },
-    {
-      id: 2,
-      name: 'Mary',
-      active: false,
-    },
-    {
-      id: 3,
-      name: 'Peter',
-      active: true,
-    },
-    {
-      id: 4,
-      name: 'Jason',
-      active: false,
-    },
+  activeUsers = [
+    { id: 0, name: 'Max', active: true },
+    { id: 1, name: 'Anna', active: true },
+    { id: 2, name: 'Chris', active: true },
   ];
 
-  changeUserStatus(id: number, newStatus: boolean) {
-    this.usersList[id - 1].active = newStatus;
+  inactiveUsers = [
+    { id: 3, name: 'John', active: false },
+    { id: 4, name: 'Ted', active: false },
+    { id: 5, name: 'Bowie', active: false },
+  ];
+
+  setToActive(id: number) {
+    this.activeUsers.push(this.inactiveUsers[id]);
+    this.inactiveUsers.splice(id, 1);
+
     this.opCounter.increment();
-    console.log(this.opCounter.getCounter());
+    this.incrementCounter();
+  }
+
+  setToInactive(id: number) {
+    this.inactiveUsers.push(this.activeUsers[id]);
+    this.activeUsers.splice(id, 1);
+    this.incrementCounter();
+  }
+
+  incrementCounter() {
+    this.opCounter.increment();
+    console.log('Number of operations done: ' + this.opCounter.getCounter());
   }
 }
