@@ -42,4 +42,11 @@ export class AppComponent {
       ? this.evenNumbersArr.push(currentNumber)
       : this.oddNumbersArr.push(currentNumber);
   }
+
+  /* ------------------- SERVICES STUFF ----------------------*/
+  accountsList: { name: string; status: string }[] = [];
+
+  addAccount(account: { name: string; status: string }) {
+    this.accountsList.push(account);
+  }
 }
