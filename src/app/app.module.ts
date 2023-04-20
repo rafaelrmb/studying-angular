@@ -49,6 +49,7 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: '/404',
+    pathMatch: 'full',
   },
 ];
 
