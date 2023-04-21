@@ -25,8 +25,10 @@ export class HomeComponent implements OnInit {
       }, 1000);
     });
 
-    this.subscription = customObservale.subscribe((data: any) =>
-      console.log(data)
+    this.subscription = customObservale.subscribe(
+      (data: any) => console.log(data),
+      (error) => console.log(error),
+      () => console.log('Completed!')
     );
   }
 
