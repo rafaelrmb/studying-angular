@@ -10,6 +10,7 @@ import { UserComponent } from './users/user/user.component';
 import { UsersComponent } from './users/users.component';
 import { AuthGuard } from './auth-guard.service';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
+import { DataResolver } from './resolvers/data.resolver';
 
 const routes: Routes = [
   {
@@ -34,6 +35,9 @@ const routes: Routes = [
       {
         path: ':id',
         component: ServerComponent,
+        resolve: {
+          data: DataResolver,
+        },
       },
       {
         path: ':id/edit',
