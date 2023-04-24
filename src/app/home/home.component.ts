@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription, interval } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    const customObservale = new Observable((observer) => {
+    const customObservable = new Observable((observer) => {
       let count = 0;
       setInterval(() => {
         observer.next(count);
@@ -25,11 +26,13 @@ export class HomeComponent implements OnInit {
       }, 1000);
     });
 
-    this.subscription = customObservale.subscribe(
-      (data: any) => console.log(data),
-      (error) => console.log(error),
-      () => console.log('Completed!')
-    );
+    this.subscription = customObservable
+      .pipe(map((data: number) => data * 2))
+      .subscribe(
+        (data: any) => console.log(data),
+        (error) => console.log(error),
+        () => console.log('Completed!')
+      );
   }
 
   ngOnDestroy() {
