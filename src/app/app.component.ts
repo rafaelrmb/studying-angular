@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -18,11 +19,15 @@ export class AppComponent implements OnInit {
           Validators.required,
           this.invalidUsername.bind(this),
         ]),
-        email: new FormControl(null, [
-          Validators.required,
-          Validators.email,
-          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
-        ]),
+        email: new FormControl(
+          null,
+          [
+            Validators.required,
+            Validators.email,
+            Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+          ],
+          this.blockedEmails
+        ),
       }),
       gender: new FormControl('prefer not to say', Validators.required),
       hobbies: new FormArray([]),
@@ -48,5 +53,19 @@ export class AppComponent implements OnInit {
       return { usernameIsBlocked: true };
     }
     return null;
+  }
+
+  blockedEmails(control: FormControl): Promise<any> | Observable<any> {
+    const promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value === 'a@email.com') {
+          resolve({ emailIsBlocked: true });
+        } else {
+          resolve(null);
+        }
+      }, 1500);
+    });
+
+    return promise;
   }
 }
