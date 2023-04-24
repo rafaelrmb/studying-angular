@@ -133,6 +133,115 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <h1>Form Assignment</h1>
+
+      <hr />
+
+      <form (ngSubmit)="submitForm()" #registerForm="ngForm">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            ngModel
+            name="email"
+            required
+            email
+            #email="ngModel"
+          />
+          <span class="help-block" *ngIf="email.invalid && email.touched"
+            >Please insert a valid email.</span
+          >
+        </div>
+
+        <div id="userPassword" ngModelGroup="userPassword">
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              ngModel
+              name="password"
+              required
+              pattern="^(?=.*[a-zA-Z])(?=.*\d).{6,}$"
+              #password="ngModel"
+            />
+            <span
+              class="help-block"
+              *ngIf="password.invalid && password.touched"
+              >Please insert a valid password. Min length is 6 and contains at
+              least 1 letter and 1 char.</span
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="confirmPassword"
+              ngModel
+              name="confirmPassword"
+              required
+              pattern="^(?=.*[a-zA-Z])(?=.*\d).{6,}$"
+              #confirmPassword="ngModel"
+            />
+            <span
+              class="help-block"
+              *ngIf="
+                confirmPassword.value !== password.value &&
+                confirmPassword.touched
+              "
+              >Please ensure passwords match.</span
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subscriptionPlan">Select your subscription plan</label>
+          <select
+            class="form-control"
+            name="plans"
+            id="plans"
+            ngModel
+            required
+            #plans="ngModel"
+          >
+            <option *ngFor="let plan of subscriptionPlans" value="{{ plan }}">
+              {{ plan }}
+            </option>
+          </select>
+          <span class="help-block" *ngIf="plans.invalid"
+            >Please select a subscription plan.</span
+          >
+        </div>
+
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!registerForm.valid"
+        >
+          Submit
+        </button>
+
+        <button
+          class="btn btn-danger"
+          type="button"
+          (click)="resetForm()"
+          [disabled]="registerForm.pristine"
+        >
+          Reset
+        </button>
+      </form>
+
+      <hr />
+
+      <h2>Form Data</h2>
+      <p>Email: {{ registrationData.email }}</p>
+      <p>Password: {{ registrationData.password }}</p>
+      <p>Confirm Password: {{ registrationData.confirmPassword }}</p>
+      <p>Subscription Plan: {{ registrationData.subscriptionPlan }}</p>
     </div>
   </div>
 </div>
