@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
-        <div id="user-data">
+        <div id="user-data" ngModelGroup="userData">
           <div class="form-group">
             <label for="username">Username</label>
             <input
@@ -20,9 +20,11 @@
               >Please enter a valid username!</span
             >
           </div>
+
           <button class="btn btn-default" type="button">
             Suggest an Username
           </button>
+
           <div class="form-group">
             <label for="email">Mail</label>
             <input
@@ -40,29 +42,41 @@
             >
           </div>
         </div>
-        <div class="form-group">
-          <label for="secret">Secret Questions</label>
-          <select
-            id="secret"
-            class="form-control"
-            [ngModel]="'teacher'"
-            name="secret"
-          >
-            <option value="pet">Your first Pet?</option>
-            <option value="teacher">Your first teacher?</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="questionAnswer">Type your answer</label>
-          <textarea
-            name="questionAnswer"
-            rows="3"
-            class="form-control"
-            [(ngModel)]="answer"
-            #questionAnswer="ngModel"
-          ></textarea>
-          <p *ngIf="questionAnswer.dirty" class="help-block">
-            Your answer is: {{ answer }}
+
+        <div
+          id="security-question"
+          ngModelGroup="secQuestion"
+          #secQuestion="ngModelGroup"
+        >
+          <div class="form-group">
+            <label for="secret">Secret Questions</label>
+            <select
+              id="secret"
+              class="form-control"
+              [ngModel]="'teacher'"
+              name="secret"
+            >
+              <option value="pet">Your first Pet?</option>
+              <option value="teacher">Your first teacher?</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="questionAnswer">Type your answer</label>
+            <textarea
+              name="questionAnswer"
+              rows="3"
+              class="form-control"
+              [(ngModel)]="answer"
+              #questionAnswer="ngModel"
+            ></textarea>
+            <p *ngIf="questionAnswer.dirty" class="help-block">
+              Your answer is: {{ answer }}
+            </p>
+          </div>
+          <p class="help-block" *ngIf="secQuestion.pristine">
+            We recommend you set up a security question before submitting the
+            form.
           </p>
         </div>
         <button
