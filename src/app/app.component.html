@@ -48,7 +48,27 @@
           </label>
         </div>
 
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <div formArrayName="hobbies">
+          <h4>Your Hobbies</h4>
+          <button class="btn btn-default" type="button" (click)="addHobby()">
+            Add Hobby
+          </button>
+          <div
+            class="form-group"
+            *ngFor="let control of controls; let i = index"
+          >
+            <label for="hobby">Hobby</label>
+            <input class="form-control" type="text" formControlName="{{ i }}" />
+          </div>
+        </div>
+
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="signupForm.invalid"
+        >
+          Submit
+        </button>
       </form>
     </div>
   </div>
