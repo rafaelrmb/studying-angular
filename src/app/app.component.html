@@ -79,6 +79,23 @@
             form.
           </p>
         </div>
+
+        <div class="form-group">
+          <label for="genders">Select you gender</label>
+          <div class="radio" *ngFor="let gender of genders">
+            <label>
+              <input
+                type="radio"
+                ngModel
+                name="gender"
+                [value]="gender"
+                required
+              />
+              {{ gender }}
+            </label>
+          </div>
+        </div>
+
         <button
           class="btn btn-primary"
           type="submit"
