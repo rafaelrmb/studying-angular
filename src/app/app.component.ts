@@ -8,8 +8,12 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
   @ViewChild('myForm') myForm!: NgForm;
+  isAssignmentOn = true;
+
   answer: string = '';
+
   genders = ['male', 'female', 'other', 'prefer not to say'];
+
   formData = {
     username: '',
     email: '',
