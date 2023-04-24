@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   }
 
   submitForm() {
-    console.log(this.signupForm.value);
+    console.log(this.signupForm);
   }
 
   addHobby() {
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
 
   invalidUsername(control: FormControl): { [s: string]: boolean } {
     if (this.blockedUsernames.indexOf(control.value) !== -1) {
-      return { blocked: true };
+      return { usernameIsBlocked: true };
     }
     return null;
   }
