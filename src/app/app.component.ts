@@ -10,6 +10,13 @@ export class AppComponent {
   @ViewChild('myForm') myForm!: NgForm;
   answer: string = '';
   genders = ['male', 'female', 'other', 'prefer not to say'];
+  formData = {
+    username: '',
+    email: '',
+    secretQuestion: '',
+    answer: '',
+    gender: '',
+  };
 
   // onSubmit(myForm: NgForm) {
   //   const { username, email, secret } = myForm.form.value;
@@ -18,7 +25,14 @@ export class AppComponent {
   // }
 
   onSubmit(myForm: NgForm) {
-    console.log(myForm);
+    const { userData, secQuestion, gender } = myForm.form.value;
+    this.formData = {
+      username: userData.username,
+      email: userData.email,
+      secretQuestion: secQuestion.secret,
+      answer: secQuestion.questionAnswer,
+      gender: gender,
+    };
   }
 
   suggestName() {
