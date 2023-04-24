@@ -57,4 +57,8 @@ export class AppComponent {
       gender: 'prefer not to say',
     });
   }
+
+  resetForm() {
+    this.myForm.reset();
+  }
 }
