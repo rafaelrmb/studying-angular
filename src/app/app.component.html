@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row" *ngIf="!isAssignmentOn">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form [formGroup]="signupForm" (ngSubmit)="submitForm()">
         <div id="userData" formGroupName="userData">
@@ -72,6 +72,136 @@
           class="btn btn-primary"
           type="submit"
           [disabled]="signupForm.invalid || signupForm.pending"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="isAssignmentOn">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <h1>Reactive Forms - Assignment</h1>
+
+      <hr />
+
+      <form [formGroup]="projectForm" (ngSubmit)="submitForm()">
+        <div id="aboutProject" formGroupName="aboutProject">
+          <fieldset>
+            <legend>About the project</legend>
+            <div class="form-group">
+              <label for="projectName">Project Name</label>
+              <input
+                type="text"
+                name="projectName"
+                formControlName="projectName"
+                class="form-control"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="projectDescription">Project Description</label>
+              <textarea
+                name="projectDescription"
+                formControlName="projectDescription"
+                class="form-control"
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="projectStatus">Project Status</label>
+              <select formControlName="projectStatus" class="form-control">
+                <option *ngFor="let status of statusList" [value]="status">
+                  {{ status }}
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="startDate">Project Start Date</label>
+              <input
+                type="date"
+                name="startDate"
+                formControlName="projectStartDate"
+                class="form-control"
+              />
+              <span
+                class="help-block"
+                *ngIf="
+                  projectForm.get('aboutProject.projectStartDate').invalid &&
+                  projectForm.get('aboutProject.projectStartDate').touched
+                "
+                >Please input a valid date</span
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="startDate">Project End Date</label>
+              <input
+                type="date"
+                name="endDate"
+                formControlName="projectEndDate"
+                class="form-control"
+              />
+              <span
+                class="help-block"
+                *ngIf="
+                  projectForm.get('aboutProject.projectEndDate').invalid &&
+                  projectForm.get('aboutProject.projectEndDate').touched
+                "
+                >Please input a valid date</span
+              >
+            </div>
+          </fieldset>
+        </div>
+
+        <div id="managerInfo" formGroupName="managerInfo">
+          <fieldset>
+            <legend>Manager Info</legend>
+
+            <div class="form-group">
+              <label for="managerName">Manager Name</label>
+              <input
+                type="text"
+                name="managerName"
+                formControlName="managerName"
+                class="form-control"
+              />
+              <span
+                class="help-block"
+                *ngIf="
+                  projectForm.get('managerInfo.managerName').touched &&
+                  projectForm.get('managerInfo.managerName').invalid
+                "
+                >Please make sure the manager you are assigning is allowed for
+                this project.</span
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="managerEmail">Manager Email</label>
+              <input
+                type="email"
+                name="managerEmail"
+                formControlName="managerEmail"
+                class="form-control"
+              />
+            </div>
+            <span
+              class="help-block"
+              *ngIf="
+                projectForm.get('managerInfo.managerEmail').invalid &&
+                projectForm.get('managerInfo.managerEmail').touched
+              "
+              >Please insert a valid email.</span
+            >
+          </fieldset>
+        </div>
+
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="projectForm.invalid || projectForm.pending"
         >
           Submit
         </button>
