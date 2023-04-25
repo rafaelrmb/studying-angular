@@ -56,10 +56,18 @@
 
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3 my-4">
-      <p *ngIf="loadedPosts.length === 0">No posts available!</p>
+      <div class="d-flex" *ngIf="isLoading">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <p *ngIf="loadedPosts.length === 0 && !isLoading">No posts available!</p>
+
       <h1 *ngIf="loadedPosts.length > 0">
         Total Posts: {{ loadedPosts.length }}
       </h1>
+
       <ul class="list-group" *ngIf="loadedPosts.length">
         <li class="list-group-item" *ngFor="let posts of loadedPosts">
           <h2>{{ posts.title }}</h2>
