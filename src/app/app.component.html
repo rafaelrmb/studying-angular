@@ -68,7 +68,7 @@
         Total Posts: {{ loadedPosts.length }}
       </h1>
 
-      <ul class="list-group" *ngIf="loadedPosts.length">
+      <ul class="list-group" *ngIf="loadedPosts.length && !isLoading">
         <li class="list-group-item" *ngFor="let posts of loadedPosts">
           <h2>{{ posts.title }}</h2>
           <p>{{ posts.content }}</p>
