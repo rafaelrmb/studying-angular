@@ -59,7 +59,6 @@ export class AppComponent implements OnInit {
       .subscribe((posts) => {
         this.isLoading = false;
         this.loadedPosts = posts;
-        console.log(this.loadedPosts);
       });
   }
 }
