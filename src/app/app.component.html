@@ -64,6 +64,11 @@
 
       <p *ngIf="loadedPosts.length === 0 && !isLoading">No posts available!</p>
 
+      <div class="alert alert-danger my-4" role="alert" *ngIf="errorMsg !== ''">
+        <strong>An error occurred!</strong>
+        <p>{{ errorMsg }}</p>
+      </div>
+
       <h1 *ngIf="loadedPosts.length > 0">
         Total Posts: {{ loadedPosts.length }}
       </h1>
