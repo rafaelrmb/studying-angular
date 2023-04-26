@@ -9,10 +9,16 @@ import { Observable, map } from 'rxjs';
 export class PostsService {
   constructor(private http: HttpClient) {}
 
-  createPost(postData: Post): Observable<{ postId: string }> {
-    return this.http.post<{ postId: string }>(
+  createPost(postData: Post) {
+    return this.http.post<{ name: string }>(
       'https://ng-complete-course-97a40-default-rtdb.firebaseio.com/posts.json',
       postData
+    );
+  }
+
+  deletePosts() {
+    return this.http.delete(
+      'https://ng-complete-course-97a40-default-rtdb.firebaseio.com/posts.json'
     );
   }
 
